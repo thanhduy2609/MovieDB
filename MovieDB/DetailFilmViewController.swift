@@ -12,6 +12,7 @@ class DetailFilmViewController: UIViewController {
 
     
     
+    @IBOutlet weak var lblOverview: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgPoster: UIImageView!
     var filmId: Int = 0
@@ -52,9 +53,13 @@ class DetailFilmViewController: UIViewController {
                     let jsonResponse = try JSONSerialization.jsonObject(with: rawData, options: [])
                     movie = Movie(parsedJson: jsonResponse as! [String : AnyObject])
                     //load data
-                    lblTitle.text = movie.title
-                    let posterUrl: String = "https://image.tmdb.org/t/p/w780"+movie.posterPath!
-                    downloadImage(url: URL(string: posterUrl)!)
+                    DispatchQueue.main.async {
+                        self.lblTitle.text = self.movie.title
+                        self.lblOverview.text = self.movie.overview
+                        let posterUrl: String = "https://image.tmdb.org/t/p/w780"+self.movie.posterPath!
+                        self.downloadImage(url: URL(string: posterUrl)!)
+                    }
+                    
                 }
                 catch let error as NSError {
                     // Handle JSON parsing error

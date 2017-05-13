@@ -87,35 +87,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFT-4d-anF">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah1-tr-a4G">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah1-tr-a4G">
                                 <rect key="frame" x="10" y="74" width="355" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFT-4d-anF">
+                                <rect key="frame" x="0.0" y="148.5" width="375" height="518.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noF-TV-N1h">
+                                <rect key="frame" x="10" y="108" width="355" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ah1-tr-a4G" firstAttribute="leading" secondItem="8qH-M8-evc" secondAttribute="leading" constant="10" id="12T-GI-6kh"/>
-                            <constraint firstItem="NNL-FX-ks8" firstAttribute="top" secondItem="vFT-4d-anF" secondAttribute="bottom" id="2qx-4i-sT5"/>
-                            <constraint firstItem="vFT-4d-anF" firstAttribute="top" secondItem="BI2-vq-3m8" secondAttribute="bottom" id="716-DD-FFN"/>
-                            <constraint firstItem="vFT-4d-anF" firstAttribute="leading" secondItem="8qH-M8-evc" secondAttribute="leading" id="Dlw-Gb-PI5"/>
-                            <constraint firstItem="Ah1-tr-a4G" firstAttribute="top" secondItem="BI2-vq-3m8" secondAttribute="bottom" constant="10" id="LJZ-Is-YLb"/>
-                            <constraint firstAttribute="trailing" secondItem="Ah1-tr-a4G" secondAttribute="trailing" constant="10" id="Zis-xi-fI2"/>
-                            <constraint firstAttribute="trailing" secondItem="vFT-4d-anF" secondAttribute="trailing" id="wkt-GN-hF5"/>
+                            <constraint firstAttribute="trailing" secondItem="noF-TV-N1h" secondAttribute="trailing" constant="10" id="0T0-Au-xZT"/>
+                            <constraint firstItem="Ah1-tr-a4G" firstAttribute="leading" secondItem="8qH-M8-evc" secondAttribute="leading" constant="10" id="6wk-X8-GBJ"/>
+                            <constraint firstItem="vFT-4d-anF" firstAttribute="top" secondItem="noF-TV-N1h" secondAttribute="bottom" constant="20" id="O84-zN-OZY"/>
+                            <constraint firstAttribute="trailing" secondItem="Ah1-tr-a4G" secondAttribute="trailing" constant="10" id="WcV-KT-jU7"/>
+                            <constraint firstItem="Ah1-tr-a4G" firstAttribute="top" secondItem="BI2-vq-3m8" secondAttribute="bottom" constant="10" id="ZDg-wC-gw3"/>
+                            <constraint firstAttribute="trailing" secondItem="vFT-4d-anF" secondAttribute="trailing" id="gp9-Ky-C7p"/>
+                            <constraint firstItem="vFT-4d-anF" firstAttribute="leading" secondItem="8qH-M8-evc" secondAttribute="leading" id="hxJ-20-DI7"/>
+                            <constraint firstItem="NNL-FX-ks8" firstAttribute="top" secondItem="vFT-4d-anF" secondAttribute="bottom" id="idY-uN-zPt"/>
+                            <constraint firstItem="noF-TV-N1h" firstAttribute="leading" secondItem="8qH-M8-evc" secondAttribute="leading" constant="10" id="teU-jC-Szw"/>
+                            <constraint firstItem="noF-TV-N1h" firstAttribute="top" secondItem="Ah1-tr-a4G" secondAttribute="bottom" constant="10" id="xtA-Vz-Uay"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imgPoster" destination="vFT-4d-anF" id="bMi-c9-EOa"/>
+                        <outlet property="lblOverview" destination="noF-TV-N1h" id="sWR-6z-k5n"/>
                         <outlet property="lblTitle" destination="Ah1-tr-a4G" id="Djv-j6-Y4n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixe-y2-3Kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802" y="230"/>
+            <point key="canvasLocation" x="1800.8" y="229.83508245877064"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XR8-IY-pZQ">
