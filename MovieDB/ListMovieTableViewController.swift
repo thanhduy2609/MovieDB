@@ -52,6 +52,7 @@ class ListMovieTableViewController: UITableViewController {
         task.resume()
     }
 
+    //get all movies
     fileprivate func onFetchMoviesComplete(_ data: Data?, response: URLResponse?, error: NSError?) {
         if error != nil {
             print("An error occurred while loading now playing list: \(String(describing: error?.localizedDescription))")
@@ -59,11 +60,12 @@ class ListMovieTableViewController: UITableViewController {
         else {
             if let rawData = data {
                 do {
+                    //get response
                     let jsonResponse = try JSONSerialization.jsonObject(with: rawData, options: []) as? [String:Any]
-                    
+                    //parse data
                     self.page = jsonResponse?["page"] as? Int
                     self.totalPages = jsonResponse?["total_pages"] as? Int
-                    
+                    //parse results
                     if let moviesJson = jsonResponse?["results"] as? [[String: AnyObject]] {
                         for movieJson in moviesJson {
                             self.allMovie.append(Movie(parsedJson: movieJson))
@@ -102,6 +104,7 @@ class ListMovieTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return movies.count
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as!MovieViewCell

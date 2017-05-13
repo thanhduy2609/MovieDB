@@ -17,6 +17,7 @@ class ApiClient {
     //move paths
     static let nowPlayingPath = "/now_playing"
    
+    //create path for load movies
     class func createUrl(queryParams: [URLQueryItem]?) -> URL? {
         var urlComponent = URLComponents()
         
@@ -25,6 +26,7 @@ class ApiClient {
         urlComponent.path = "/3/movie"+nowPlayingPath
         urlComponent.queryItems = [apiKeyQueryParam()]
         
+        //add more queryParams
         if let queryParams = queryParams {
             urlComponent.queryItems?.append(contentsOf: queryParams)
         }
@@ -32,6 +34,7 @@ class ApiClient {
     }
     
    
+    //params for apiKey
     class func apiKeyQueryParam() -> URLQueryItem {
         return URLQueryItem(name: apiKeyParam, value: apiKey)
     }

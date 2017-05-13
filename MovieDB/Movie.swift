@@ -19,6 +19,7 @@ class Movie {
     var voteAverage: Double?
     var id: Int?
     
+    //init and parse data
     init(parsedJson: [String: AnyObject]) {
         if let overview = parsedJson["overview"] as? String {
             self.overview = overview
@@ -42,6 +43,7 @@ class Movie {
     }
     
 
+    //get all movies 
     class func getMovies(page: Int?, onComplete: @escaping (Data?, URLResponse?, NSError?) -> Void) {
         var queryParams = [URLQueryItem]()
         
