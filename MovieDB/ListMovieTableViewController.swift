@@ -48,17 +48,18 @@ class ListMovieTableViewController: UITableViewController {
         }
         
         let url = ApiClient.createUrl(queryParams: queryParams)!
+        print(url)
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: URLRequest(url: url), completionHandler: {
             data, response, error in
         
-            self.onFetchMoviesComplete(data, error: error as! NSError)
+            self.onFetchMoviesComplete(data, response: response, error: error as NSError?)
         })
         task.resume()
     }
 
-    fileprivate func onFetchMoviesComplete(_ data: Data?, error: NSError?) {
+    fileprivate func onFetchMoviesComplete(_ data: Data?, response: URLResponse?, error: NSError?) {
         isFetchingMovies = true
         print("A")
         if error != nil {
@@ -117,9 +118,11 @@ class ListMovieTableViewController: UITableViewController {
         let movie = movies[indexPath.row]
         
         cell.lblTitle.text = movie.title
-        cell.lblOverview.text = movie.posterPath
+        cell.lblOverview.text = movie.overview
         
         let posterUrl: String = "http://image.tmdb.org/t/p/w185"+movie.posterPath!
+        print(posterUrl)
+       // cell.imgPoster.image = Downloader.downloadImage(url: URL(string: posterUrl)!)
         cell.imgPoster.image = Downloader.downloadImageWithURL(posterUrl)
         return cell
     }
@@ -132,5 +135,24 @@ class Downloader {
         
         let data = try? Data(contentsOf: URL(string: url)!)
         return UIImage(data: data!)
+    }
+    
+    class func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    class func downloadImage(url: URL){
+        print("Download Started")
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { () -> Void in
+               //return UIImage(data: data)
+            }
+        }
     }
 }
