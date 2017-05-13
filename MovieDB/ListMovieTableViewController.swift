@@ -118,7 +118,13 @@ class ListMovieTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        if segue.identifier == "showDetail" {
+            let detailFilmVC = segue.destination as! DetailFilmViewController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let movie = movies[indexPath.row]
+                detailFilmVC.filmId = movie.id!
+            }
+        }
     }
 
 }

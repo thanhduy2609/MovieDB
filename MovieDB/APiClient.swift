@@ -35,4 +35,16 @@ class ApiClient {
     class func apiKeyQueryParam() -> URLQueryItem {
         return URLQueryItem(name: apiKeyParam, value: apiKey)
     }
+    
+    //get detail film
+    class func getDetailFilm(filmId: Int) -> URL? {
+        var urlComponent = URLComponents()
+        
+        urlComponent.scheme = scheme
+        urlComponent.host = host
+        urlComponent.path = "/3/movie/"+String(filmId)
+        urlComponent.queryItems = [apiKeyQueryParam()]
+        
+        return urlComponent.url
+    }
 }

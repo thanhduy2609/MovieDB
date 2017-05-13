@@ -107,6 +107,7 @@
 		30F6C03F1EC5FC1D000BEADF /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				F71CD8A31EC6FF8700270DED /* Utils */,
 				30F6C0701EC5FCE7000BEADF /* Controller */,
 				30F6C06F1EC5FCE1000BEADF /* View */,
 				30F6C06E1EC5FCD8000BEADF /* Model */,
@@ -162,6 +163,13 @@
 				F777D0791EC6F05100B9C864 /* DetailFilmViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		F71CD8A31EC6FF8700270DED /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
