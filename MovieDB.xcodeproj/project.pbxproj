@@ -18,6 +18,7 @@
 		30F6C0741EC5FF94000BEADF /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6C0731EC5FF94000BEADF /* MovieViewCell.swift */; };
 		30F6C0761EC6020F000BEADF /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6C0751EC6020F000BEADF /* Movie.swift */; };
 		30F6C07A1EC60734000BEADF /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F6C0791EC60734000BEADF /* ApiClient.swift */; };
+		F777D07A1EC6F05100B9C864 /* DetailFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777D0791EC6F05100B9C864 /* DetailFilmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		30F6C0731EC5FF94000BEADF /* MovieViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 		30F6C0751EC6020F000BEADF /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		30F6C0791EC60734000BEADF /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		F777D0791EC6F05100B9C864 /* DetailFilmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFilmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				30F6C0711EC5FD0C000BEADF /* ListMovieTableViewController.swift */,
+				F777D0791EC6F05100B9C864 /* DetailFilmViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30F6C0431EC5FC1D000BEADF /* ViewController.swift in Sources */,
+				F777D07A1EC6F05100B9C864 /* DetailFilmViewController.swift in Sources */,
 				30F6C0741EC5FF94000BEADF /* MovieViewCell.swift in Sources */,
 				30F6C0411EC5FC1D000BEADF /* AppDelegate.swift in Sources */,
 				30F6C0721EC5FD0C000BEADF /* ListMovieTableViewController.swift in Sources */,
@@ -547,6 +551,7 @@
 				30F6C0671EC5FC1D000BEADF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30F6C0681EC5FC1D000BEADF /* Build configuration list for PBXNativeTarget "MovieDBTests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +560,7 @@
 				30F6C06A1EC5FC1D000BEADF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30F6C06B1EC5FC1D000BEADF /* Build configuration list for PBXNativeTarget "MovieDBUITests" */ = {
 			isa = XCConfigurationList;
@@ -563,6 +569,7 @@
 				30F6C06D1EC5FC1D000BEADF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

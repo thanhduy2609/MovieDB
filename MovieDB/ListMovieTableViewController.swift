@@ -12,7 +12,6 @@ class ListMovieTableViewController: UITableViewController {
     
     var allMovie = [Movie]()
     var movePath: String?
-    var isFetchingMovies = false
     var page: Int?
     var totalPages: Int?
     var movies = [Movie]()
@@ -31,12 +30,6 @@ class ListMovieTableViewController: UITableViewController {
     }
 
     func getMovies() {
-        
-//        Movie.getMovies(page: 1) {
-//            (data, response, error) in
-//            self.onFetchMoviesComplete(data, response: response, error: error)
-//        }
-        
         getMovies(page: 1)
     }
     
@@ -60,8 +53,6 @@ class ListMovieTableViewController: UITableViewController {
     }
 
     fileprivate func onFetchMoviesComplete(_ data: Data?, response: URLResponse?, error: NSError?) {
-        isFetchingMovies = true
-        print("A")
         if error != nil {
             print("An error occurred while loading now playing list: \(String(describing: error?.localizedDescription))")
         }
@@ -122,9 +113,12 @@ class ListMovieTableViewController: UITableViewController {
         
         let posterUrl: String = "http://image.tmdb.org/t/p/w185"+movie.posterPath!
         print(posterUrl)
-       // cell.imgPoster.image = Downloader.downloadImage(url: URL(string: posterUrl)!)
-        cell.imgPoster.image = Downloader.downloadImageWithURL(posterUrl)
+        Downloader.downloadImage(url: URL(string: posterUrl)!, cell: cell)
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
     }
 
 }
@@ -144,13 +138,14 @@ class Downloader {
             }.resume()
     }
     
-    class func downloadImage(url: URL){
+    class func downloadImage(url: URL, cell: MovieViewCell) -> Void{
         print("Download Started")
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
             DispatchQueue.main.async() { () -> Void in
+                cell.imgPoster.image = UIImage(data: data)
                //return UIImage(data: data)
             }
         }

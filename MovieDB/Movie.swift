@@ -17,6 +17,7 @@ class Movie {
     var title: String?
     var posterPath: String?
     var voteAverage: Double?
+    var id: Int?
     
     init(parsedJson: [String: AnyObject]) {
         if let overview = parsedJson["overview"] as? String {
@@ -34,24 +35,13 @@ class Movie {
         if let voteAverage = parsedJson["vote_average"] as? Double {
             self.voteAverage = voteAverage
         }
+        
+        if let id = parsedJson["id"] as? Int {
+            self.id = id;
+        }
     }
     
 
-    
-//    class func getMovies(page: Int?, onComplete: @escaping (Data?, URLResponse?, NSError) -> Void) {
-//        var queryParams = [URLQueryItem] ()
-//        
-//        if let page = page {
-//            queryParams.append(URLQueryItem(name: "page", value: "\(page)"))
-//        }
-//        
-//       let url = ApiClient.createUrl(queryParams: queryParams)!
-//        print(url)
-//        
-//        let session = URLSession(configuration: URLSessionConfiguration.default)
-//        let task = session.dataTask(with: URLRequest(url: url), completionHandler: onComplete as! (Data?, URLResponse?, Error?) -> Void)
-//        task.resume()
-//    }
     class func getMovies(page: Int?, onComplete: @escaping (Data?, URLResponse?, NSError?) -> Void) {
         var queryParams = [URLQueryItem]()
         
